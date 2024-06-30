@@ -1,0 +1,13 @@
+0.  Open visual studio, look for .env..... file. Rename it to ".env".
+1. Run composer install 
+2. if lock file does not contain....
+3. Run composer update
+4. if requirements could not be resolved...
+5. Run composer update --ignore-platform-reqs
+6. Once done installing, run php artisan migrate ( to mirgrate database o f downloaded system to the local database).
+7. Once done migrating, run php artisan key:generate
+8. The key in the env file should now have a key. 
+9. Run php artisan storage:link
+
+-------------------------------------
+10. Run php artisan serve ( to open the system)

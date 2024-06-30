@@ -1,0 +1,31 @@
+body {
+    color: black !important;
+}
+
+body label {
+    color: black !important;
+}
+
+body button {
+    color: black !important;
+}
+
+body a {
+    color: black !important;
+}
+
+body th {
+    color: black !important;
+}
+
+body ul li a {
+    color: black !important;
+}
+
+#black {
+    color: black !important;
+}
+
+#border-blue {
+    border: 1px solid #017cfd;
+}

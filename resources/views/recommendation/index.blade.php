@@ -14,6 +14,23 @@
             </div>
 
         </div>
+        <div class="section-body">
+            <div class="row">
+            <div class="col col-lg-4 col-md-6 col-sm-12 d-flex justify-content-around">
+                    <div class="card text-start" style="width: 30rem; heigth: 50rem;">
+                        <div class="card-body" id = "border-blue" style="border-radius: 5px;">
+                          <h5 class="">Senior Wellness Program</h5>
+                          <p class="mt-0">Senior</p>
+                          <div class="d-flex justify-content-center">
+                          <img src="{{ '../img/senior.png' }}" alt="" style = "width: 200px;" class = "p-3">
+                          </div>
+
+
+                        </div>
+                      </div>
+                </div>
+            </div>
+        </div>
 </section>
 @endsection
 @section('data_tables_script')

@@ -13,7 +13,7 @@
 </aside>
 
 <!-- Sidebar outter -->
-<div class="main-sidebar"> 
+<div class="main-sidebar">
     <!-- sidebar wrapper -->
     <aside id="sidebar-wrapper">
       <!-- sidebar brand -->
@@ -25,7 +25,7 @@
 
       </div>
       <div class="sidebar-brand sidebar-brand-sm">
-            <a href="">DDBSRS</a> 
+            <a href="">DDBSRS</a>
       </div>
       <!-- sidebar menu -->
       <ul class="sidebar-menu mt-4">
@@ -40,7 +40,9 @@
         <li class ="mx-2 {{ request()->is('officials/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('officials.index')}}"><i class="fas fa-user-tie"></i><span>Brgy Officials</span></a></li>
         <li class ="mx-2 {{ request()->is('Reports/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('reports.index')}}"><i class="fas fa-file"></i><span>Reports</span></a></li>
         <li class ="mx-2 {{ request()->is('ActivityLog/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('activity_logs.index')}}"><i class="fas fa-clipboard-list"></i><span>Activity Logs</span></a></li>
-      </ul>
+        <li class ="mx-2 {{ request()->is('Recommendation/*') ? 'active-nav' : '' }}"><a class="nav-link" href ="{{route('recommendation.index')}}"><i class="fas fa-comment"></i><span>Recommendation</span></a></li>
+
+    </ul>
     </aside>
   </div>
 

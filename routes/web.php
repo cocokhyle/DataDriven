@@ -82,7 +82,7 @@ Route::get('/welcome', function(){
       Route::get('/show/{id}', [App\Http\Controllers\BarangaySettlementAgreementController::class, 'show'])->name('settlement_agreement.show');
     });
 
-  
+
 
     //Blotters
     Route::group(['prefix' => 'Blotters','middleware' => 'auth'], function(){
@@ -95,7 +95,7 @@ Route::get('/welcome', function(){
       Route::post('/update/{id}', [App\Http\Controllers\BlottersController::class, 'update'])->name('blotters.update');
       Route::post('/manage/{id}', [App\Http\Controllers\BlottersController::class, 'manage'])->name('blotters.manage');
       Route::get('/patawag-form/{date}/{id}', [App\Http\Controllers\BlottersController::class, 'patawag'])->name('blotters.patawag');
-      
+
       // Route::delete('/delete/{id}', [App\Http\Controllers\ResidenceController::class, 'destroy'])->name('residence.delete');
     });
 
@@ -112,7 +112,7 @@ Route::get('/welcome', function(){
       Route::get('/membership-program-report', [App\Http\Controllers\ReportController::class, 'membership_program_report'])->name('membership-program.report');
       Route::get('/residents-occupation-report', [App\Http\Controllers\ReportController::class, 'residents_occupation_report'])->name('residents-occupation.report');
 
-      
+
     });
 
     Route::get('/permits', function () {
@@ -131,7 +131,7 @@ Route::get('/welcome', function(){
     });
 
 
-    
+
     Route::group(['prefix' => 'business_clearance','middleware' => 'auth'], function(){
       Route::get('/index', [App\Http\Controllers\BusinessClearanceController::class, 'index'])->name('business_clearance.index');
       Route::get('/create-business', [App\Http\Controllers\BusinessClearanceController::class, 'create_business'])->name('create_business');
@@ -187,6 +187,10 @@ Route::get('/welcome', function(){
     Route::group(['prefix' => 'ActivityLog','middleware' => 'auth'], function(){
     Route::get('/index', [App\Http\Controllers\ActivityLogController::class, 'index'])->name('activity_logs.index');
     });
+
+    Route::group(['prefix' => 'Recommendation','middleware' => 'auth'], function(){
+        Route::get('/index', [App\Http\Controllers\RecommendationController::class, 'index'])->name('recommendation.index');
+        });
 
 
 Auth::routes();

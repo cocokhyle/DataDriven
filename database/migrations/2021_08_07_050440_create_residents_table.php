@@ -24,7 +24,10 @@ class CreateResidentsTable extends Migration
             $table->date('birthday');
             $table->string('birthplace', 32)->nullable();
             $table->string('civil_status', 32);
-            
+            $table->string('isOccupation', 32);
+            $table->string('isBeneficiaries', 32);
+            $table->string('programId', 32);
+
 
             $table->string('house_number', 32)->nullable();
             $table->string('purok', 32);
@@ -38,6 +41,7 @@ class CreateResidentsTable extends Migration
             $table->string('membership_prog', 32);
 
             $table->string('image', 64)->nullable();
+
 
             $table->timestamps();
         });

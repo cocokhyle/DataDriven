@@ -16,10 +16,10 @@ class ResidenceController extends Controller
      */
     public function index()
     {
-        
+
         $residence_list = Resident::all();
         return view('residence.index', compact('residence_list'));
-        
+
     }
 
     /**
@@ -53,9 +53,9 @@ class ResidenceController extends Controller
             $file = $folderPath . $fileName;
             file_put_contents($file, $image_base64);
 
-     
+
             //resident Number
-            $year = Carbon::now()->year;  
+            $year = Carbon::now()->year;
             $resident_cnt = Resident::all()->count();
             $resident_cnt = $resident_cnt + 1;
 
@@ -76,13 +76,17 @@ class ResidenceController extends Controller
             $residence->street = $request->street;
             $residence->occupation = $request->occupation;
             $residence->student = $request->student;
+            //added
+            $residence->isOccupation = ($request->occupation === 'None') ? 'No' : 'Yes';
+            $residence->isBeneficiaries = ($request->membership_prog === 'None') ? 'No' : 'Yes';
 
-           
+
+
             $residence->type_of_house = $request->type_of_house;
             $residence->pwd = $request->pwd;
             $residence->membership_prog = $request->membership_prog;
-            $residence->save();  
-            
+            $residence->save();
+
             // $request->validate([
             //     'image' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             //   ]);
@@ -94,9 +98,9 @@ class ResidenceController extends Controller
             //   }
             //   $residence->image = $imageName;
             //   $residence->path = '/storage/'.$path;
-    
+
             return redirect()->route('residence.index')->withStatus('Resident Register Succesfully!');
-            
+
             // ;
     }
 
@@ -137,19 +141,19 @@ class ResidenceController extends Controller
 
             if ($request->image != null)
             {
-                
+
                 $img =  $request->get('image');
                 $folderPath = storage_path("app/public/residence/");
                 $image_parts = explode(";base64,", $img);
-    
+
                 foreach ($image_parts as $key => $image){
                     $image_base64 = base64_decode($image);
                 }
-    
+
                 $fileName = uniqid() . '.png';
                 $file = $folderPath . $fileName;
                 file_put_contents($file, $image_base64);
-    
+
                 $resident->image = $fileName;
             }
 
@@ -170,7 +174,7 @@ class ResidenceController extends Controller
             $resident->type_of_house = $request->type_of_house;
             $resident->pwd = $request->pwd;
             $resident->membership_prog = $request->membership_prog;
-            $resident->save();  
+            $resident->save();
             return redirect()->route('residence.show',$id)->withStatus('Resident Update Succesfully!');
     }
 
@@ -181,10 +185,10 @@ class ResidenceController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    { 
+    {
         $resident = Resident::findOrfail($id);
 
-        
+
         $resident ->delete();
 
         return redirect()->route('residence.index')->with('swal_delete', 'Residence added sucessfully!');

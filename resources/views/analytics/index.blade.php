@@ -131,7 +131,7 @@
 
                         </div>
                     </div>
-                </div>                
+                </div>
                 <div class="col-lg-6">
                     <div class="card" id = "border-blue">
                         <div class="card-header d-flex justify-content-between mb-4">
@@ -180,6 +180,7 @@
                             {{$fourPs_Cnt}},
                             {{$tupad_Cnt}},
                             {{$MembershipProgram_None_Cnt}},
+
                         ],
                         backgroundColor: [
                             '#017cfd',
@@ -215,6 +216,7 @@
                             {{ $pwd_Cnt }},
                             {{ $fourPs_Cnt }},
                             {{ $tupad_Cnt }},
+                            {{$business_Cnt}},
                         ],
                         backgroundColor: [
                             '#017cfd',
@@ -232,6 +234,7 @@
                         'PWD',
                         '4ps Member',
                         'TUPAD Member',
+                        'Business',
 
                         //     'Yellow',
                         //     'Red',
@@ -445,7 +448,7 @@
                             {{$purok3_pwd_Cnt}},
                             {{$purok4_pwd_Cnt}},
                             {{$purok5_pwd_Cnt}},
-                            
+
                         ],
                         backgroundColor: [
                             '#017cfd',
@@ -492,7 +495,7 @@
                            {{$purok3_4ps_Cnt}},
                            {{$purok4_4ps_Cnt}},
                            {{$purok5_4ps_Cnt}},
-                           
+
                         ],
                         backgroundColor: [
                             '#017cfd',

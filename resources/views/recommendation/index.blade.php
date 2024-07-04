@@ -24,7 +24,6 @@
                           <div class="d-flex justify-content-center">
                           <img src="{{ '../img/senior.png' }}" alt="" style = "width: 200px;" class = "p-3">
                           <p class="mt-0">This will help the senior to actively healthy</p>
-                          <p class="mt-0">Age 60 and above.</p>
                           </div>
                         </div>
                       </div>

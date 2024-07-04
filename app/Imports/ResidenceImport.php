@@ -34,7 +34,7 @@ class ResidenceImport implements ToModel, WithHeadingRow, SkipsOnError, WithVali
     public function model(array $row)
     {
         return new Resident([
-                
+
                'last_name'          => $row['Lastname'],
                'first_name'         => $row['Firstname'],
                'middle_name'        => $row['Middlename'],
@@ -52,6 +52,9 @@ class ResidenceImport implements ToModel, WithHeadingRow, SkipsOnError, WithVali
                'pwd'                => $row['PWD'],
                'membership_prog'    => $row['Subsidy Program'],
                'res_num'            => $row['Resident Number'],
+               'isOccupation'       => ($row['Occupation'] === 'None') ? 'No' : 'Yes',
+               'isBeneficiaries'    => ($row['Subsidy Program'] === 'None') ? 'No' : 'Yes'
+
         ]);
     }
 

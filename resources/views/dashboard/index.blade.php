@@ -58,8 +58,8 @@
 
                         <div class="card-body rounded" id="border-blue">
                             <div class="row">
-                                
-                               
+
+
 
                                 <div class="col-lg-4">
                                     <div class="card card-primary" id="border-blue" >
@@ -84,9 +84,9 @@
                                             <canvas id="seniorChart"></canvas>
                                         </div>
                                     </div>
-                                </div>      
-                                
-                                <div class="col-lg-4"> 
+                                </div>
+
+                                <div class="col-lg-4">
                                     <div class="card card-primary" id="border-blue" >
                                         <div class="pt-2">
                                             <h5 class="text-center">No. of Blotters</h5>
@@ -94,10 +94,10 @@
                                         <div class="card-body py-2 px-2">
                                             <h1 class="text-center text-primary">{{ $total_blotters }}</h1>
                                             <canvas id="blotterChart"></canvas>
-                                        </div>     
+                                        </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-lg-4" >
                                     <div class="card card-primary " id="border-blue" >
                                             <div class="card-body py-0">
@@ -106,14 +106,14 @@
                                             <div class="pt-2">
                                                 <h5 class="text-center">No. of Business</h5>
                                             </div>
-                                            
-                                     
+
+
                                         <div class="card-body py-2 ">
                                             <h1 class="text-center text-primary">{{ $total_business }}</h1>
                                         </div>
                                     </div>
                                 </div>
-                                
+
                                 <div class="col-lg-4">
                                     <div class="card card-primary" id="border-blue" >
                                         <div class="card-body py-0">
@@ -134,14 +134,14 @@
                                             <img src="{{ '../img/Plain credit card-pana.png' }}" alt="" style = "width: 200px;">
                                         </div>
                                         <div class="pt-2">
-                                            <h5 class="text-center">No. of 4P's Beficiaries</h5>
+                                            <h5 class="text-center">No. of Program Beficiaries</h5>
                                         </div>
                                         <div class="card-body py-2 ">
-                                            <h1 class="text-center text-primary">{{ $total_business }}</h1>
+                                            <h1 class="text-center text-primary">{{ $fourPs }}</h1>
                                         </div>
                                     </div>
                                 </div>
-                                   
+
 
                             </div>
                         </div>
@@ -151,7 +151,7 @@
                 <div class="col-lg-3">
 
                     <div class="card ">
-                        
+
 
                             <div class="officials">
                                 <p id="brgy">Barangay Sto.Tomas<br> Officials
@@ -160,8 +160,8 @@
                                     <img id="logo-img" src="{{ asset('../img/brgy-bayog-logo.png') }}"
                                         alt="brgy-bayog-logo">
 
-                                    @foreach ($b_officials as $b_official)    
-                                                
+                                    @foreach ($b_officials as $b_official)
+
                                        @if ($b_official->brgy_official_position == 'Barangay Chairman')
                                             <p>
                                                 <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
@@ -172,7 +172,7 @@
                                                 <strong>COUNCILORS</strong><br>
                                             </p>
 
-                                        
+
                                         @elseif($b_official->brgy_official_position == 'Barangay Secretary')
                                         <p>
                                             <strong>{{ $b_official->brgy_official_name }}</strong><br>
@@ -196,10 +196,10 @@
                                                 <strong>Hon. {{ $b_official->brgy_official_name }}</strong><br>
                                                 {{ $b_official->brgy_official_role }}
                                             </p>
-                                            
+
                                         @endif
-                                                         
-                                    
+
+
                                     @endforeach
 
                                     {{-- <p>

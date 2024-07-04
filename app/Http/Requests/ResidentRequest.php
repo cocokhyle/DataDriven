@@ -17,6 +17,7 @@ class ResidentRequest extends FormRequest
         return Auth::check();
     }
 
+
     /**
      * Get the validation rules that apply to the request.
      *
@@ -40,7 +41,7 @@ class ResidentRequest extends FormRequest
             'occupation' => 'required|string',
             'student' => 'required|string',
 
-           
+
             'type_of_house' =>'required|string',
             'pwd' => 'required|string',
             'membership_prog' => 'required|string',
@@ -50,7 +51,7 @@ class ResidentRequest extends FormRequest
     public function messages()
 {
     return [
-        
+
         'image.required' => 'Capture Image Required',
     ];
 }

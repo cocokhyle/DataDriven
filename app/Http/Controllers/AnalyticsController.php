@@ -4,19 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Model\Resident;
+use App\Model\Business;
 
 class AnalyticsController extends Controller
 {
     public function index(){
 
         $residence = Resident::all();
+        $business = Business::all();
 
         //general analytics
         $senior_Cnt = 0;
         foreach($residence as $resident){
             if (\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60){
                 $senior_Cnt = $senior_Cnt + 1;
-            }  
+            }
         }
         $std_Cnt = Resident::where('student', '!=', null)->count();
         $pwd_Cnt = Resident::where('PWD' ,'=', 'Yes')->count();
@@ -25,7 +27,7 @@ class AnalyticsController extends Controller
         $MembershipProgram_None_Cnt = Resident::where('membership_prog' ,'=', 'None')->count();
 
             //Reisdent per purok
-        $purok_1_Cnt = 0; $purok_2_Cnt = 0; $purok_3_Cnt = 0; $purok_4_Cnt = 0; $purok_5_Cnt = 0;          
+        $purok_1_Cnt = 0; $purok_2_Cnt = 0; $purok_3_Cnt = 0; $purok_4_Cnt = 0; $purok_5_Cnt = 0;
             foreach($residence as $resident){
                 if ($resident->purok == 1){
                     $purok_1_Cnt = $purok_1_Cnt + 1;
@@ -42,7 +44,7 @@ class AnalyticsController extends Controller
                 if ($resident->purok == 5){
                     $purok_5_Cnt = $purok_5_Cnt + 1;
                 }
-            
+
         }
 
             //resident by Age
@@ -59,7 +61,7 @@ class AnalyticsController extends Controller
                 elseif ((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 20) && (\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') <= 59)){
                     $adult_Cnt = $adult_Cnt + 1;
                 }
-            //senior variable is declare at the top     
+            //senior variable is declare at the top
         }
 
             //senior by purok
@@ -71,19 +73,19 @@ class AnalyticsController extends Controller
 
                 if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok ==  "2"))){
                     $purok2_senior_Cnt = $purok2_senior_Cnt + 1;
-                } 
+                }
 
                 if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok ==  "3"))){
                     $purok3_senior_Cnt = $purok3_senior_Cnt + 1;
-                } 
+                }
 
                 if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok == "4"))){
                     $purok4_senior_Cnt = $purok4_senior_Cnt + 1;
-                } 
+                }
 
                 if (((\Carbon\Carbon::parse($resident->birthday)->diff(\Carbon\Carbon::now())->format('%y') >= 60) && ($resident->purok ==  "5"))){
                     $purok5_senior_Cnt = $purok5_senior_Cnt + 1;
-                } 
+                }
             }
 
             //PWD per Purok
@@ -99,7 +101,7 @@ class AnalyticsController extends Controller
         $purok3_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "3")->count();
         $purok4_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "4")->count();
         $purok5_4ps_Cnt = Resident::where('membership_prog' ,'=', '4Ps')->where('purok',"=", "5")->count();
-        
+
             //TUPAD per Purok
         $purok1_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "1")->count();
         $purok2_TUPAD_Cnt = Resident::where('membership_prog' ,'=', 'TUPAD')->where('purok',"=", "2")->count();
@@ -114,6 +116,9 @@ class AnalyticsController extends Controller
         $purok4_student_Cnt = Resident::where('student' ,'!=', 'N/A')->where('purok',"=", "4")->count();
         $purok5_student_Cnt = Resident::where('student' ,'!=', 'N/A')->where('purok',"=", "5")->count();
 
+        //Business count
+        $business_Cnt = Business::get()->count();
+
 
 
         return view('analytics.index',compact('std_Cnt','senior_Cnt','pwd_Cnt','fourPs_Cnt','tupad_Cnt','MembershipProgram_None_Cnt',
@@ -123,7 +128,7 @@ class AnalyticsController extends Controller
         'purok1_pwd_Cnt','purok2_pwd_Cnt','purok3_pwd_Cnt','purok4_pwd_Cnt','purok5_pwd_Cnt',
         'purok1_4ps_Cnt','purok2_4ps_Cnt','purok3_4ps_Cnt','purok4_4ps_Cnt','purok5_4ps_Cnt',
         'purok1_TUPAD_Cnt','purok2_TUPAD_Cnt','purok3_TUPAD_Cnt','purok4_TUPAD_Cnt','purok5_TUPAD_Cnt',
-        'purok1_student_Cnt','purok2_student_Cnt','purok3_student_Cnt','purok4_student_Cnt','purok5_student_Cnt'
+        'purok1_student_Cnt','purok2_student_Cnt','purok3_student_Cnt','purok4_student_Cnt','purok5_student_Cnt','business_Cnt'
     ));
     }
 }

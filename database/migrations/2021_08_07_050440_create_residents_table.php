@@ -26,7 +26,7 @@ class CreateResidentsTable extends Migration
             $table->string('civil_status', 32);
             $table->string('isOccupation', 32);
             $table->string('isBeneficiaries', 32);
-            $table->string('programId', 32);
+            $table->string('programId', 32)->nullable();
 
 
             $table->string('house_number', 32)->nullable();

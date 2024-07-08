@@ -16,7 +16,8 @@
         "laravel/framework": "^7.29",
         "laravel/tinker": "^2.5",
         "maatwebsite/excel": "^3.1",
-        "spatie/laravel-backup": "^6.16"
+        "spatie/laravel-backup": "^6.16",
+        "symfony/process": "^5.4"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.6",

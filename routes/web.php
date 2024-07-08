@@ -189,7 +189,9 @@ Route::get('/welcome', function(){
     });
 
     Route::group(['prefix' => 'Recommendation','middleware' => 'auth'], function(){
+
         Route::get('/index', [App\Http\Controllers\RecommendationController::class, 'index'])->name('recommendation.index');
+
         });
 
 

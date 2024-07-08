@@ -12,15 +12,14 @@ class CreateRecommendationsTable extends Migration
      * @return void
      */
     public function up()
-    {
-        Schema::create('recommendations', function (Blueprint $table) {
-            $table->id();
-            $table->string('title');
-            $table->string('description', 64);
-            $table->string('subject', 32);
-            $table->timestamps();
-        });
-    }
+{
+    Schema::create('recommendations', function (Blueprint $table) {
+        $table->id();
+        $table->integer('programId');
+        $table->timestamps();
+    });
+}
+
 
     /**
      * Reverse the migrations.

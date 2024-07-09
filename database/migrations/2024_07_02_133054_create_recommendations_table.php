@@ -14,8 +14,10 @@ class CreateRecommendationsTable extends Migration
     public function up()
 {
     Schema::create('recommendations', function (Blueprint $table) {
-        $table->id();
+
         $table->integer('programId');
+        $table->string('programName', 32);
+        $table->string('programDescription',255);
         $table->timestamps();
     });
 }

@@ -1,13 +1,35 @@
 0.  Open visual studio, look for .env..... file. Rename it to ".env".
-1. Run composer install 
+1. Run composer install
 2. if lock file does not contain....
 3. Run composer update
 4. if requirements could not be resolved...
 5. Run composer update --ignore-platform-reqs
 6. Once done installing, run php artisan migrate ( to mirgrate database o f downloaded system to the local database).
 7. Once done migrating, run php artisan key:generate
-8. The key in the env file should now have a key. 
+8. The key in the env file should now have a key.
 9. Run php artisan storage:link
+
+Instruction:
+Ensure install keras with the same ver
+ - pip install keras==2.14.0
+Ensure install tensorFlow with the same ver
+- pip install tensorflow==2.14.0
+Ensure install numpy with the same ver
+- pip install numpy==1.26.0
+Ensure install this mysql with the same ver
+- pip install pandas mysql-connector-python
+Esnure install scaller with the same ver
+- pip install --upgrade scikit-learn==1.2.2
+
+You should have below version of python
+python version - 3.10.9
+pip version - atleast 23.2.1
+
+
+Run these commands in different terminal to run
+the system:
+- php artisan queue:work
+- php artisan serve
 
 -------------------------------------
 10. Run php artisan serve ( to open the system)

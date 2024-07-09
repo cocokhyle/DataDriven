@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RunPythonScript;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -35,6 +36,7 @@ class RecommendationController extends Controller
             }
         }
 
+        RunPythonScript::dispatch();
         // Pass the data to the view
         return view('recommendation.index', ['programDetails' => $programDetails]);
     }

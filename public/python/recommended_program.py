@@ -35,7 +35,7 @@ def preprocess_data_from_db(data):
     data['birthday'] = scaler.transform(data[['birthday']])
 
     # Convert to a NumPy array
-    X = data[['birthday', 'gender', 'student', 'pwd', 'isOccupation', 'isBeneficiaries']].values
+    X = data[['birthday', 'student', 'pwd', 'isOccupation', 'isBeneficiaries']].values
 
     return X
 
@@ -56,7 +56,7 @@ conn = mysql.connector.connect(
 )
 
 if conn.is_connected():
-    query = "SELECT id, birthday, gender, student, pwd, isOccupation, isBeneficiaries FROM residents WHERE programID IS NULL"
+    query = "SELECT id, birthday, student, pwd, isOccupation, isBeneficiaries FROM residents WHERE programID IS NULL"
     cursor = conn.cursor()
     cursor.execute(query)
     data = cursor.fetchall()
@@ -66,7 +66,7 @@ if conn.is_connected():
         resident_id = row[0]
         birthdate = row[1]
         age = calculate_age(birthdate)
-        resident_data = pd.DataFrame([[age, row[2], row[3], row[4], row[5], row[6]]], columns=['birthday', 'gender', 'student', 'pwd', 'isOccupation', 'isBeneficiaries'])
+        resident_data = pd.DataFrame([[age, row[2], row[3], row[4], row[5]]], columns=['birthday', 'student', 'pwd', 'isOccupation', 'isBeneficiaries'])
         X = preprocess_data_from_db(resident_data)
         recommended_program_id = recommend_program(X)
 

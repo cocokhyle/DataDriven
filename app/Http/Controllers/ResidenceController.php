@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Jobs\RunPythonScript;
 use Illuminate\Http\Request;
 use App\Model\Resident;
 use Carbon\Carbon;
@@ -74,8 +75,8 @@ class ResidenceController extends Controller
             $residence->house_number = $request->house_number;
             $residence->purok = $request->purok;
             $residence->street = $request->street;
-            $residence->occupation = $request->occupation;
-            $residence->student = $request->student;
+            $residence->occupation = ($request->occupation === 'N/A') ? 'None' : $request->occupation;;
+            $residence->student = ($request->student === 'N/A') ? 'Not Applicable' : $request->student;
             //added
             $residence->isOccupation = ($request->occupation === 'None') ? 'No' : 'Yes';
             $residence->isBeneficiaries = ($request->membership_prog === 'None') ? 'No' : 'Yes';
@@ -98,6 +99,9 @@ class ResidenceController extends Controller
             //   }
             //   $residence->image = $imageName;
             //   $residence->path = '/storage/'.$path;
+
+            //This method runs the algorithm
+            RunPythonScript::dispatch();
 
             return redirect()->route('residence.index')->withStatus('Resident Register Succesfully!');
 
@@ -175,7 +179,16 @@ class ResidenceController extends Controller
             $resident->pwd = $request->pwd;
             $resident->membership_prog = $request->membership_prog;
             $resident->save();
+
+             //This method runs the algorithm
+             RunPythonScript::dispatch();
+
+
+
             return redirect()->route('residence.show',$id)->withStatus('Resident Update Succesfully!');
+
+             //This method runs the algorithm
+
     }
 
     /**
@@ -196,6 +209,8 @@ class ResidenceController extends Controller
 
     public function import()
     {
+         //This method runs the algorithm
+         RunPythonScript::dispatch();
         return view('residence.import');
     }
 }

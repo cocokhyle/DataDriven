@@ -17,6 +17,7 @@ Route::get('/welcome', function(){
   return view('welcome');
 });
 
+
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index']);
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
@@ -31,6 +32,7 @@ Route::get('/welcome', function(){
 
 
     Route::group(['prefix' => 'residents','middleware' => 'auth'], function(){
+
       Route::get('/index', [App\Http\Controllers\ResidenceController::class, 'index'])->name('residence.index');
       Route::get('/create', [App\Http\Controllers\ResidenceController::class, 'create'])->name('residence.create');
       Route::get('/edit/{id}', [App\Http\Controllers\ResidenceController::class, 'edit'])->name('residence.edit');

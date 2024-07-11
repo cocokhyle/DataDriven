@@ -77,11 +77,9 @@ class ResidenceController extends Controller
             $residence->street = $request->street;
             $residence->occupation = ($request->occupation === 'N/A') ? 'None' : $request->occupation;;
             $residence->student = ($request->student === 'N/A') ? 'Not Applicable' : $request->student;
-            //added
-            $residence->isOccupation = ($request->occupation === 'None') ? 'No' : 'Yes';
-            $residence->isBeneficiaries = ($request->membership_prog === 'None') ? 'No' : 'Yes';
-
-
+            //Set the data
+            $residence->isOccupation = (strtolower($request->occupation) === 'none' || strtolower($request->occupation) === 'n/a' || strtolower($request->occupation) === 'na') ? 'No' : 'Yes';
+            $residence->isBeneficiaries = (strtolower($request->membership_prog) === 'none' || strtolower($request->membership_prog) === 'n/a' || strtolower($request->membership_prog) === 'na') ? 'No' : 'Yes';
 
             $residence->type_of_house = $request->type_of_house;
             $residence->pwd = $request->pwd;

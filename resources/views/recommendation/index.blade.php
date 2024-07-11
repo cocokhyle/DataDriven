@@ -37,14 +37,20 @@
             <div class="card-deck col-md-4 mb-4">
                 <div class="card text-start" style="width: 100%;">
                     <div class="card-body" id="border-blue" style="border-radius: 5px;">
-                        <h5 class="card-title">{{ $program->programName }}</h5>
-                        <p class="card-text font-italic font-weight-normal d-flex">{{ $program->priority }}</p>
+                        <h5 class="card-title" >{{ $program->programName }}</h5>
+                        <p class="card-text font-italic font-weight-normal" style="font-size: 12px;">{{ $program->priority }}</p>
                         <div class="d-flex justify-content-center">
                             <img src="{{ $imagePath }}" alt="" style="width: 200px;" class="p-3">
                         </div>
-                        <p class="card-text d-flex">{{ $program->programDescription }}</p>
+                        <div class="row align-items-center ml-2">
+                        <img src="{{asset('../img/group.png')}}" alt="" style="width: 25px;" class="mr-2">
+                        <p class="card-text font-weight-normal blockquote-footer" style=" color: black;"> {{$program->usage_count}} resident(s)</p>
+                        </div>
 
-                        <!-- <p class="position-absolute bottom-0">{{$program->usage_count}}</p> -->
+
+                        <p class="card-text">{{ $program->programDescription }}</p>
+
+
 
 
                     </div>

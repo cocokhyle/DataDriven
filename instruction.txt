@@ -10,6 +10,10 @@
 9. Run php artisan storage:link
 
 Instruction:
+You should have below version of python
+python version - 3.10.9
+pip version - atleast 23.2.1
+
 Ensure install keras with the same ver
  - pip install keras==2.14.0
 Ensure install tensorFlow with the same ver
@@ -21,9 +25,7 @@ Ensure install this mysql with the same ver
 Esnure install scaller with the same ver
 - pip install --upgrade scikit-learn==1.2.2
 
-You should have below version of python
-python version - 3.10.9
-pip version - atleast 23.2.1
+
 
 
 Run these commands in different terminal to run

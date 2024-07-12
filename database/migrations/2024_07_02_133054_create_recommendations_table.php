@@ -20,7 +20,6 @@ class CreateRecommendationsTable extends Migration
         $table->string('programDescription',255);
         $table->string('priority',64);
 
-        $table->timestamps();
     });
 }
 

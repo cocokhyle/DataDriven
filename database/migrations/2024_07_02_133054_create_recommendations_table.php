@@ -19,6 +19,8 @@ class CreateRecommendationsTable extends Migration
         $table->string('programName', 32);
         $table->string('programDescription',255);
         $table->string('priority',64);
+
+        $table->string('priority',64);
        
     });
 }

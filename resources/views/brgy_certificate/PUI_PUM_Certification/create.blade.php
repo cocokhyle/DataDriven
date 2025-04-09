@@ -5,7 +5,7 @@
 @section('content')
     <section class="section">
         <div class="section-header">
-            <h3 class="page__heading">Brgy PUI-PUM Issuance</h3>
+            <h3 class="page__heading">Brgy Health Certificate Issuance</h3>
         </div>
         <div class="section-body">
             <div class="row">
@@ -13,7 +13,7 @@
                     <h2 class="section-title">Mr/Ms {{ $resident->first_name }} {{ $resident->middle_name }}
                         {{ $resident->last_name }} </h2>
                     <p class="section-lead">
-                        Requesting for Brgy PUI-PUM Certificate
+                        Requesting for Brgy Health Certificate
                     </p>
 
                     <div class="row">

@@ -66,8 +66,12 @@ if conn.is_connected():
         resident_id = row[0]
         birthdate = row[1]
         age = calculate_age(birthdate)
-        resident_data = pd.DataFrame([[age, row[2], row[3], row[4], row[5]]], columns=['birthday', 'student', 'pwd', 'isOccupation', 'isBeneficiaries'])
+        # Input Layer / First Layer
+        resident_data = pd.DataFrame([[age, row[2], row[3], row[4], row[5]]], columns=['birthday', 'student', 'pwd', 'isOccupation', 
+                                                                                       'isBeneficiaries'])
+        # Hidden State
         X = preprocess_data_from_db(resident_data)
+        # Output Layer
         recommended_program_id = recommend_program(X)
 
         # Convert recommended_program_id to a native Python integer
